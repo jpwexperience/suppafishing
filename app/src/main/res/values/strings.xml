@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Suppa Fishing</string>
+    <string name="new_game">Create New Game</string>
+    <string name="name">Name</string>
+    <string name="money">Money</string>
+    <string name="days">Days</string>
+    <string name="create">Create Game</string>
 </resources>
