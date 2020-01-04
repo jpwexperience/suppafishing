@@ -5,4 +5,7 @@
     <string name="money">Money</string>
     <string name="days">Days</string>
     <string name="create">Create Game</string>
+    <string name="view_db">View Database</string>
+    <string name="update_db">Update</string>
+    <string name="id">ID</string>
 </resources>
