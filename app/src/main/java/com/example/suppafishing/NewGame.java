@@ -44,7 +44,7 @@ public class NewGame extends AppCompatActivity {
             Toast.makeText(NewGame.this, "Data NOT Inserted", Toast.LENGTH_LONG).show();
         }
         Player newPlayer = new Player((int) insertId, name, money, days, guppy, shrimp, trout, lobster, net, rod, box, new Market());
-        Intent intent = new Intent(this, GamePlay.class);
+        Intent intent = new Intent(this, GameMenu.class);
         intent.putExtra("data", newPlayer);
         startActivity(intent);
     }

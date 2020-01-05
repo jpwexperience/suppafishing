@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -12,7 +13,7 @@ import com.example.suppafishing.databinding.ActivityGamePlayBinding;
 
 import java.util.Random;
 
-public class GamePlay extends AppCompatActivity {
+public class GameMenu extends AppCompatActivity {
     ActivityGamePlayBinding gamePlayBinding;
     TextView marketInfo;
     Player player;
@@ -30,6 +31,12 @@ public class GamePlay extends AppCompatActivity {
         marketInfo.setText(player.getMarket().toString());
     }
 
+    public void enterMarketplace(View view){
+        Intent intent = new Intent(this, Marketplace.class);
+        intent.putExtra("data", player);
+        startActivity(intent);
+    }
+    /*
     public void randomButton(View view){
         guppyRand = rand.nextInt(50);
         player.setGuppy(guppyRand);
@@ -41,4 +48,5 @@ public class GamePlay extends AppCompatActivity {
         player.setName("AYY LMAO");
         gamePlayBinding.invalidateAll();
     }
+    */
 }

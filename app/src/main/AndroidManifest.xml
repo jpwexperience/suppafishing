@@ -11,8 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Marketplace"
+            android:parentActivityName=".GameMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameMenu" />
+        </activity>
         <activity
-            android:name=".GamePlay"
+            android:name=".GameMenu"
             android:parentActivityName=".NewGame">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

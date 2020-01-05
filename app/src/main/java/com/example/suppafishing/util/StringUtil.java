@@ -5,7 +5,7 @@ import androidx.databinding.InverseMethod;
 public class StringUtil {
 
     public static String nameString(String name){
-        return name + " Information";
+        return name + "'s Information";
     }
 
     public static String moneyString(int value){
