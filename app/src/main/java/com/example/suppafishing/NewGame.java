@@ -3,6 +3,7 @@ package com.example.suppafishing;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -10,14 +11,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class NewGame extends AppCompatActivity {
-    DatabaseHandling myDb;
+    DatabaseHandler myDb;
     EditText editName, editMoney, editDays;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
-        myDb = new DatabaseHandling(this);
+        myDb = new DatabaseHandler(this);
 
         editName = (EditText) findViewById(R.id.name_input);
         editMoney = (EditText) findViewById(R.id.money_input);
@@ -35,15 +36,17 @@ public class NewGame extends AppCompatActivity {
         int net = 1;
         int rod = 0;
         int box = 0;
-        long insertId = myDb.insertData(name, money, days, guppy, shrimp, trout, lobster, net, rod, box);
+        long insertId = myDb.insertData(name, money, days, guppy, shrimp, trout, lobster, net, rod, box, new Market());
         if(insertId != -1){
             Toast.makeText(NewGame.this, "Data Inserted", Toast.LENGTH_LONG).show();
         }
         else{
             Toast.makeText(NewGame.this, "Data NOT Inserted", Toast.LENGTH_LONG).show();
         }
-        Player newPlayer = new Player((int) insertId, name, money, days, guppy, shrimp, trout, lobster, net, rod, box);
-        showMessage("New Player", newPlayer.toString());
+        Player newPlayer = new Player((int) insertId, name, money, days, guppy, shrimp, trout, lobster, net, rod, box, new Market());
+        Intent intent = new Intent(this, GamePlay.class);
+        intent.putExtra("data", newPlayer);
+        startActivity(intent);
     }
 
     public void viewAll(View view){
@@ -68,5 +71,4 @@ public class NewGame extends AppCompatActivity {
         builder.setMessage(message);
         builder.show();
     }
-
 }

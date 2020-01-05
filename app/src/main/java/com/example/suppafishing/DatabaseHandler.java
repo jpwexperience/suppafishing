@@ -5,11 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.EditText;
 
-import androidx.annotation.Nullable;
-
-public class DatabaseHandling extends SQLiteOpenHelper {
+public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "players.db";
     public static final String TABLE_NAME = "player_table";
     public static final String COL_1 = "id";
@@ -23,8 +20,16 @@ public class DatabaseHandling extends SQLiteOpenHelper {
     public static final String COL_9 = "net";
     public static final String COL_10 = "rod";
     public static final String COL_11 = "box";
+    public static final String COL_12 = "guppy_price";
+    public static final String COL_13 = "shrimp_price";
+    public static final String COL_14 = "trout_price";
+    public static final String COL_15 = "lobster_price";
+    public static final String COL_16 = "net_price";
+    public static final String COL_17 = "rod_price";
+    public static final String COL_18 = "box_price";
+    public static final String COL_19 = "day_remaining";
 
-    public DatabaseHandling(Context context) {
+    public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
@@ -41,7 +46,15 @@ public class DatabaseHandling extends SQLiteOpenHelper {
                 COL_8 + " INTEGER, " +
                 COL_9 + " INTEGER, " +
                 COL_10 + " INTEGER, " +
-                COL_11 + " INTEGER" +
+                COL_11 + " INTEGER, " +
+                COL_12 + " INTEGER, " +
+                COL_13 + " INTEGER, " +
+                COL_14 + " INTEGER, " +
+                COL_15 + " INTEGER, " +
+                COL_16 + " INTEGER, " +
+                COL_17 + " INTEGER, " +
+                COL_18 + " INTEGER, " +
+                COL_19 + " INTEGER " +
                 ") ";
         db.execSQL(newTable);
     }
@@ -52,7 +65,7 @@ public class DatabaseHandling extends SQLiteOpenHelper {
     }
 
     public long insertData(String name, int money, int days, int guppy, int shrimp, int trout,
-                           int lobster, int net, int rod, int box){
+                           int lobster, int net, int rod, int box, Market market){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
@@ -65,6 +78,14 @@ public class DatabaseHandling extends SQLiteOpenHelper {
         contentValues.put(COL_9, net);
         contentValues.put(COL_10, rod);
         contentValues.put(COL_11, box);
+        contentValues.put(COL_12, market.getGuppy());
+        contentValues.put(COL_13, market.getShrimp());
+        contentValues.put(COL_14, market.getTrout());
+        contentValues.put(COL_15, market.getLobster());
+        contentValues.put(COL_16, market.getNet());
+        contentValues.put(COL_17, market.getRod());
+        contentValues.put(COL_18, market.getBox());
+        contentValues.put(COL_19, market.getTime());
         long insertResult = db.insert(TABLE_NAME, null, contentValues);
         return insertResult;
     }
@@ -74,5 +95,10 @@ public class DatabaseHandling extends SQLiteOpenHelper {
         String dataQuery = "SELECT * FROM " + TABLE_NAME;
         Cursor result = db.rawQuery(dataQuery, null);
         return result;
+    }
+
+    public Integer deleteData(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "ID = ?", new String[] {id});
     }
 }

@@ -8,4 +8,6 @@
     <string name="view_db">View Database</string>
     <string name="update_db">Update</string>
     <string name="id">ID</string>
+    <string name="player_information">Player Information</string>
+    <string name="delete_db">Delete Data</string>
 </resources>
