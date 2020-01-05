@@ -11,4 +11,5 @@
     <string name="player_information">Player Information</string>
     <string name="delete_db">Delete Data</string>
     <string name="marketplace">Marketplace</string>
+    <string name="resume_game">Resume Game</string>
 </resources>

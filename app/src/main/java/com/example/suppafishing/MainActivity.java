@@ -20,4 +20,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NewGame.class);
         startActivity(intent);
     }
+
+    public void resumeGame(View view){
+        Intent intent = new Intent(this, ResumeGame.class);
+        startActivity(intent);
+    }
 }
