@@ -14,8 +14,7 @@ import java.util.Random;
 
 public class GamePlay extends AppCompatActivity {
     ActivityGamePlayBinding gamePlayBinding;
-    TextView playerName, playerMoney, playerDays, playerGuppy, playerShrimp,
-            playerTrout, playerLobster, playerNet, playerRod, playerBox;
+    TextView marketInfo;
     Player player;
     Random rand = new Random();
     int guppyRand;
@@ -27,6 +26,8 @@ public class GamePlay extends AppCompatActivity {
         gamePlayBinding = DataBindingUtil.setContentView(this, R.layout.activity_game_play);
         player = (Player) getIntent().getSerializableExtra("data");
         gamePlayBinding.setPlayer(player);
+        marketInfo = findViewById(R.id.market_info);
+        marketInfo.setText(player.getMarket().toString());
     }
 
     public void randomButton(View view){

@@ -93,6 +93,10 @@ public class Player extends BaseObservable implements Serializable {
         return id;
     }
 
+    public Market getMarket() {
+        return market;
+    }
+
     public void setName(String name) {
         this.name = name;
         notifyPropertyChanged(BR.player);

@@ -1,5 +1,7 @@
 package com.example.suppafishing;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Market implements Serializable {
@@ -53,5 +55,35 @@ public class Market implements Serializable {
 
     public int getTime() {
         return time;
+    }
+
+    public void setGuppy(int guppy) {
+        this.guppy = guppy;
+    }
+
+    public void setTrout(int trout) {
+        this.trout = trout;
+    }
+
+    public void setLobster(int lobster) {
+        this.lobster = lobster;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        String info = "Guppy Price: " + getGuppy() + "\n" +
+                "Shrimp Price: " + getShrimp() + "\n" +
+                "Trout Price: " + getTrout() + "\n" +
+                "Lobster Price: " + getLobster() + "\n" +
+                "Net Price: " + getNet() + "\n" +
+                "Rod Price: " + getRod() + "\n" +
+                "Box Trap Price: " + getBox() + "\n" +
+                "Time in Day Remaining: " + getTime() + "\n";
+        return info;
     }
 }
