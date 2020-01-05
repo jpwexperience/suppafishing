@@ -97,8 +97,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return result;
     }
 
+    public Cursor getRow(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String rowQuery = "SELECT * FROM " + TABLE_NAME + " WHERE id = " + id;
+        return db.rawQuery(rowQuery, null);
+    }
+
+    public Integer deleteRow(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "id = ?", new String[] {id});
+    }
+
     public Integer deleteData(String id){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, "ID = ?", new String[] {id});
+        return db.delete(TABLE_NAME, "id = ?", new String[] {id});
     }
 }

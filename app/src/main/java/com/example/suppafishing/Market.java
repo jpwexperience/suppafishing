@@ -25,6 +25,18 @@ public class Market implements Serializable {
         this.time = 24;
     }
 
+    public Market(int net, int rod, int box, int guppy, int shrimp,
+                  int trout, int lobster, int time){
+        this.net = net;
+        this.rod = rod;
+        this.box = box;
+        this.guppy = guppy;
+        this.shrimp = shrimp;
+        this.trout = trout;
+        this.lobster = lobster;
+        this.time = time;
+    }
+
     public int getGuppy() {
         return guppy;
     }
