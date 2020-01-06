@@ -120,10 +120,9 @@ public class ResumeGame extends AppCompatActivity {
         resumeMarket = new Market(net_price, rod_price, box_price, guppy_price, shrimp_price,
                 trout_price, lobster_price, day_remaining);
         resumePlayer = new Player(player_id, name, money, days, guppy,
-                trout, shrimp, lobster, net, rod, box, resumeMarket);
+                shrimp, trout, lobster, net, rod, box, resumeMarket);
         Intent intent = new Intent(ResumeGame.this, GameMenu.class);
         intent.putExtra("data", resumePlayer);
         startActivity(intent);
     }
-
 }

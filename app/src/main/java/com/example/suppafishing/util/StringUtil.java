@@ -9,27 +9,27 @@ public class StringUtil {
     }
 
     public static String moneyString(int value){
-        return "Money: $" + String.valueOf(value);
+        return "Money: $" + value;
     }
 
     public static String daysString(int value){
-        return "Days Left: " + String.valueOf(value);
+        return "Days Left: " + value;
     }
 
     public static String guppyString(int value){
-        return "Guppies: " + String.valueOf(value);
+        return "Guppies: " + value;
     }
 
     public static String shrimpString(int value){
-        return "Shrimp: " + String.valueOf(value);
+        return "Shrimp: " + value;
     }
 
     public static String troutString(int value){
-        return "Trout: " + String.valueOf(value);
+        return "Trout: " + value;
     }
 
     public static String lobsterString(int value){
-        return "Lobster: " + String.valueOf(value);
+        return "Lobster: " + value;
     }
 
     public static String netString(int value){
@@ -57,5 +57,9 @@ public class StringUtil {
         else{
             return "No Box Trap Available";
         }
+    }
+
+    public static String marketMoneyString(int value){
+        return "$" + value;
     }
 }

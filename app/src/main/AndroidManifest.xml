@@ -13,18 +13,23 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ResumeGame"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity
-            android:name=".Marketplace"
-            android:parentActivityName=".GameMenu">
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.suppafishing.MainActivity" />
         </activity>
         <activity
-            android:name=".GameMenu"
-            android:parentActivityName=".NewGame">
+            android:name=".Marketplace">
+        </activity>
+        <activity
+            android:name=".GameMenu">
         </activity>
         <activity
             android:name=".NewGame"
             android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.suppafishing.MainActivity" />
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

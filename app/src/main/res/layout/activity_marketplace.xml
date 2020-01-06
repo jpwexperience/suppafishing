@@ -1,158 +1,340 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Marketplace">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TableLayout
+    <data>
+        <import type="com.example.suppafishing.util.StringUtil" />
+        <variable
+            name="player"
+            type="com.example.suppafishing.Player" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:context=".Marketplace">
 
-        <TableRow>
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Marketplace" />
+
+            </TableRow>
+
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Marketplace" />
+                android:layout_height="wrap_content">
 
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guppies" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{StringUtil.marketMoneyString(player.market.guppy)}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Net" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{StringUtil.marketMoneyString(player.market.net)}" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Time Remaining" />
+                android:layout_height="wrap_content">
 
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shrimp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{StringUtil.marketMoneyString(player.market.shrimp)}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rod" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{StringUtil.marketMoneyString(player.market.rod)}" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="24 Hours" />
-        </TableRow>
+                android:layout_height="wrap_content">
 
-        <TableRow
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{StringUtil.marketMoneyString(player.market.trout)}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Box" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{StringUtil.marketMoneyString(player.market.box)}" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lobsters" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{StringUtil.marketMoneyString(player.market.lobster)}" />
+
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/guppy_inc"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginEnd="304dp"
+            android:layout_marginRight="304dp"
+            android:gravity="center"
+            android:onClick="incGuppy"
+            android:text="+"
+            android:textSize="6sp"
+            app:layout_constraintBottom_toBottomOf="@+id/guppy_dec"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/guppy_dec"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:onClick="decGuppy"
+            android:text="-"
+            android:textSize="6sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guppy_stock" />
+
+        <TextView
+            android:id="@+id/guppy_sell"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:gravity="center"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="@+id/guppy_dec"
+            app:layout_constraintEnd_toStartOf="@+id/guppy_inc"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toEndOf="@+id/guppy_dec" />
+
+        <Button
+            android:id="@+id/shrimp_inc"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:gravity="center"
+            android:onClick="incShrimp"
+            android:text="+"
+            android:textSize="6sp"
+            app:layout_constraintBottom_toBottomOf="@+id/shrimp_dec"
+            app:layout_constraintEnd_toEndOf="@+id/guppy_inc" />
+
+        <Button
+            android:id="@+id/shrimp_dec"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:onClick="decShrimp"
+            android:text="-"
+            android:textSize="6sp"
+            app:layout_constraintStart_toStartOf="@+id/guppy_dec"
+            app:layout_constraintTop_toBottomOf="@+id/shrimp_stock" />
+
+        <TextView
+            android:id="@+id/shrimp_sell"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:gravity="center"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="@+id/shrimp_dec"
+            app:layout_constraintEnd_toStartOf="@+id/shrimp_inc"
+            app:layout_constraintStart_toEndOf="@+id/shrimp_dec" />
+
+        <Button
+            android:id="@+id/trout_dec"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:onClick="decTrout"
+            android:text="-"
+            android:textSize="6sp"
+            app:layout_constraintStart_toStartOf="@+id/shrimp_dec"
+            app:layout_constraintTop_toBottomOf="@+id/trout_stock" />
+
+        <Button
+            android:id="@+id/trout_inc"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:gravity="center"
+            android:onClick="incTrout"
+            android:text="+"
+            android:textSize="6sp"
+            app:layout_constraintBottom_toBottomOf="@+id/trout_dec"
+            app:layout_constraintEnd_toEndOf="@+id/shrimp_inc" />
+
+        <TextView
+            android:id="@+id/trout_sell"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:gravity="center"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="@+id/trout_dec"
+            app:layout_constraintEnd_toStartOf="@+id/trout_inc"
+            app:layout_constraintStart_toEndOf="@+id/trout_dec" />
+
+        <Button
+            android:id="@+id/lobster_dec"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:onClick="decLobster"
+            android:text="-"
+            android:textSize="6sp"
+            app:layout_constraintStart_toStartOf="@+id/trout_dec"
+            app:layout_constraintTop_toBottomOf="@+id/lobster_stock" />
+
+        <Button
+            android:id="@+id/lobster_inc"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:gravity="center"
+            android:onClick="incLobster"
+            android:text="+"
+            android:textSize="6sp"
+            app:layout_constraintBottom_toBottomOf="@+id/lobster_dec"
+            app:layout_constraintEnd_toEndOf="@+id/trout_inc" />
+
+        <TextView
+            android:id="@+id/lobster_sell"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:gravity="center"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="@+id/lobster_dec"
+            app:layout_constraintEnd_toStartOf="@+id/lobster_inc"
+            app:layout_constraintStart_toEndOf="@+id/lobster_dec" />
+
+        <TextView
+            android:id="@+id/guppy_stock"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Guppy"
+            app:layout_constraintEnd_toEndOf="@+id/textView8"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Guppies" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$10" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Net" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$10" />
-        </TableRow>
-
-        <TableRow
+        <TextView
+            android:id="@+id/shrimp_stock"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="Shrimp"
+            app:layout_constraintEnd_toEndOf="@+id/guppy_stock"
+            app:layout_constraintStart_toStartOf="@+id/guppy_stock"
+            app:layout_constraintTop_toBottomOf="@+id/guppy_stock" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Shrimp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$10" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rod" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$10" />
-        </TableRow>
-
-        <TableRow
+        <TextView
+            android:id="@+id/trout_stock"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="Trout"
+            app:layout_constraintEnd_toEndOf="@+id/shrimp_stock"
+            app:layout_constraintStart_toStartOf="@+id/shrimp_stock"
+            app:layout_constraintTop_toBottomOf="@+id/shrimp_stock" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Trout" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$10" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Box" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$10" />
-        </TableRow>
-
-        <TableRow
+        <TextView
+            android:id="@+id/lobster_stock"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="Lobster"
+            app:layout_constraintEnd_toEndOf="@+id/trout_stock"
+            app:layout_constraintStart_toStartOf="@+id/trout_stock"
+            app:layout_constraintTop_toBottomOf="@+id/trout_stock" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lobsters" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="16dp"
+            android:text="Inventory"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$10" />
+        <Button
+            android:id="@+id/main_sell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:onClick="sellFish"
+            android:text="Sell"
+            app:layout_constraintEnd_toEndOf="@+id/lobster_stock"
+            app:layout_constraintStart_toStartOf="@+id/lobster_stock"
+            app:layout_constraintTop_toBottomOf="@+id/lobster_stock" />
 
-        </TableRow>
-    </TableLayout>
+        <TextView
+            android:id="@+id/money_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="116dp"
+            android:layout_marginLeft="116dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toTopOf="@+id/textView8" />
 
-    <Button
-        android:id="@+id/increment_button"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="384dp"
-        android:gravity="center"
-        android:onClick="incrementButton"
-        android:text="+"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintBaseline_toBaselineOf="@+id/increment_button"
-        app:layout_constraintEnd_toStartOf="@+id/decrement_button"
-        app:layout_constraintStart_toEndOf="@+id/increment_button" />
-
-    <Button
-        android:id="@+id/decrement_button"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="183dp"
-        android:layout_marginRight="183dp"
-        android:gravity="center"
-        android:onClick="decrementButton"
-        android:text="-"
-        app:layout_constraintBaseline_toBaselineOf="@+id/increment_button"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

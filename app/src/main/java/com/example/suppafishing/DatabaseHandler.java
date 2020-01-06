@@ -90,6 +90,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return insertResult;
     }
 
+    public boolean updatePlayer(Player player, Market market){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_1, player.getId());
+        contentValues.put(COL_2, player.getName());
+        contentValues.put(COL_3, player.getMoney());
+        contentValues.put(COL_4, player.getDays());
+        contentValues.put(COL_5, player.getGuppy());
+        contentValues.put(COL_6, player.getShrimp());
+        contentValues.put(COL_7, player.getTrout());
+        contentValues.put(COL_8, player.getLobster());
+        contentValues.put(COL_9, player.getNet());
+        contentValues.put(COL_10, player.getRod());
+        contentValues.put(COL_11, player.getBox());
+        contentValues.put(COL_12, market.getGuppy());
+        contentValues.put(COL_13, market.getShrimp());
+        contentValues.put(COL_14, market.getTrout());
+        contentValues.put(COL_15, market.getLobster());
+        contentValues.put(COL_16, market.getNet());
+        contentValues.put(COL_17, market.getRod());
+        contentValues.put(COL_18, market.getBox());
+        contentValues.put(COL_19, market.getTime());
+        db.update(TABLE_NAME, contentValues, "id = ?", new String[] {String.valueOf(player.getId())});
+        return true;
+    }
+
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         String dataQuery = "SELECT * FROM " + TABLE_NAME;
