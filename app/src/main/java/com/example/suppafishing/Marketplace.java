@@ -24,7 +24,7 @@ public class Marketplace extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marketplace);
         activityMarketplaceBinding = DataBindingUtil.setContentView(this, R.layout.activity_marketplace);
-        player = (Player) getIntent().getSerializableExtra("data");
+        player = getIntent().getExtras().getParcelable("data");
         activityMarketplaceBinding.setPlayer(player);
 
         guppy = guppyTemp = player.getGuppy();

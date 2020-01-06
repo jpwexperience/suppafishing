@@ -1,10 +1,11 @@
 package com.example.suppafishing;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 
-import java.io.Serializable;
-
-public class Market implements Serializable {
+public class Market implements Parcelable {
     private int net;
     private int rod;
     private int box;
@@ -36,6 +37,29 @@ public class Market implements Serializable {
         this.lobster = lobster;
         this.time = time;
     }
+
+    protected Market(Parcel in) {
+        net = in.readInt();
+        rod = in.readInt();
+        box = in.readInt();
+        guppy = in.readInt();
+        shrimp = in.readInt();
+        trout = in.readInt();
+        lobster = in.readInt();
+        time = in.readInt();
+    }
+
+    public static final Creator<Market> CREATOR = new Creator<Market>() {
+        @Override
+        public Market createFromParcel(Parcel in) {
+            return new Market(in);
+        }
+
+        @Override
+        public Market[] newArray(int size) {
+            return new Market[size];
+        }
+    };
 
     public int getGuppy() {
         return guppy;
@@ -97,5 +121,22 @@ public class Market implements Serializable {
                 "Box Trap Price: " + getBox() + "\n" +
                 "Time in Day Remaining: " + getTime() + "\n";
         return info;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(net);
+        dest.writeInt(rod);
+        dest.writeInt(box);
+        dest.writeInt(guppy);
+        dest.writeInt(shrimp);
+        dest.writeInt(trout);
+        dest.writeInt(lobster);
+        dest.writeInt(time);
     }
 }

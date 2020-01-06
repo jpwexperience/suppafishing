@@ -1,2 +1,2 @@
 # Suppa Fishing
-## Simple Fishing Simulator
+## Simple Market Centered Fishing Simulator

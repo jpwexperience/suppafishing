@@ -26,7 +26,7 @@ public class GameMenu extends AppCompatActivity {
         setContentView(R.layout.activity_game_play);
         myDb = new DatabaseHandler(this);
         gamePlayBinding = DataBindingUtil.setContentView(this, R.layout.activity_game_play);
-        player = (Player) getIntent().getSerializableExtra("data");
+        player = getIntent().getExtras().getParcelable("data");
         gamePlayBinding.setPlayer(player);
     }
 

@@ -1,14 +1,13 @@
 package com.example.suppafishing;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.databinding.BindingAdapter;
 
-import java.io.Serializable;
-
-//Implements Serializable for passing between activities
-public class Player extends BaseObservable implements Serializable {
+public class Player extends BaseObservable implements Parcelable {
     private final int id;
     private String name;
     private int money;
@@ -37,6 +36,33 @@ public class Player extends BaseObservable implements Serializable {
         this.box = box;
         this.market = market;
     }
+
+    protected Player(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        money = in.readInt();
+        days = in.readInt();
+        guppy = in.readInt();
+        shrimp = in.readInt();
+        trout = in.readInt();
+        lobster = in.readInt();
+        net = in.readInt();
+        rod = in.readInt();
+        box = in.readInt();
+        market = in.readParcelable(Market.class.getClassLoader());
+    }
+
+    public static final Creator<Player> CREATOR = new Creator<Player>() {
+        @Override
+        public Player createFromParcel(Parcel in) {
+            return new Player(in);
+        }
+
+        @Override
+        public Player[] newArray(int size) {
+            return new Player[size];
+        }
+    };
 
     @Bindable
     public String getName() {
@@ -157,5 +183,26 @@ public class Player extends BaseObservable implements Serializable {
                 "Rod: " + getRod() + "\n" +
                 "Box: " + getBox();
         return info;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeInt(money);
+        dest.writeInt(days);
+        dest.writeInt(guppy);
+        dest.writeInt(shrimp);
+        dest.writeInt(trout);
+        dest.writeInt(lobster);
+        dest.writeInt(net);
+        dest.writeInt(rod);
+        dest.writeInt(box);
+        dest.writeParcelable(market, flags);
     }
 }

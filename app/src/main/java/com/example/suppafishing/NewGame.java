@@ -20,9 +20,9 @@ public class NewGame extends AppCompatActivity {
         setContentView(R.layout.activity_new_game);
         myDb = new DatabaseHandler(this);
 
-        editName = (EditText) findViewById(R.id.name_input);
-        editMoney = (EditText) findViewById(R.id.money_input);
-        editDays = (EditText) findViewById(R.id.days_input);
+        editName = findViewById(R.id.name_input);
+        editMoney = findViewById(R.id.money_input);
+        editDays = findViewById(R.id.days_input);
     }
 
     public void startGame(View view){
