@@ -133,11 +133,7 @@ public class Marketplace extends AppCompatActivity {
         }
     }
 
-    public void sellFish(View view){
-        int guppyCount = Integer.parseInt(guppySell.getText().toString());
-        int shrimpCount = Integer.parseInt(shrimpSell.getText().toString());
-        int troutCount = Integer.parseInt(troutSell.getText().toString());
-        int lobsterCount = Integer.parseInt(lobsterSell.getText().toString());
+    public void sellFish(int guppyCount, int shrimpCount, int troutCount, int lobsterCount){
         int guppyProfit = guppyCount * player.getMarket().getGuppy();
         int shrimpProfit = shrimpCount * player.getMarket().getShrimp();
         int troutProfit = troutCount * player.getMarket().getTrout();
@@ -158,6 +154,22 @@ public class Marketplace extends AppCompatActivity {
         shrimpSell.setText("0");
         troutSell.setText("0");
         lobsterSell.setText("0");
+    }
+
+    public void mainSell(View view){
+        int guppyCount = Integer.parseInt(guppySell.getText().toString());
+        int shrimpCount = Integer.parseInt(shrimpSell.getText().toString());
+        int troutCount = Integer.parseInt(troutSell.getText().toString());
+        int lobsterCount = Integer.parseInt(lobsterSell.getText().toString());
+        sellFish(guppyCount, shrimpCount, troutCount, lobsterCount);
+    }
+
+    public void sellAll(View view){
+        sellFish(guppy, shrimp, trout, lobster);
+        guppyStock.setText("Guppies: 0");
+        shrimpStock.setText("Shrimp: 0");
+        troutStock.setText("Trout: 0");
+        lobsterStock.setText("Lobster: 0");
     }
 
     @Override

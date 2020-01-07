@@ -320,7 +320,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:onClick="sellFish"
+            android:onClick="mainSell"
             android:text="Sell"
             app:layout_constraintEnd_toEndOf="@+id/lobster_stock"
             app:layout_constraintStart_toStartOf="@+id/lobster_stock"
@@ -335,6 +335,17 @@
             android:text="TextView"
             app:layout_constraintStart_toEndOf="@+id/textView8"
             app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:onClick="sellAll"
+            android:text="Sell All"
+            app:layout_constraintStart_toEndOf="@+id/main_sell"
+            app:layout_constraintTop_toTopOf="@+id/main_sell" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

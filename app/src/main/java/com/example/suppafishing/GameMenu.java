@@ -42,7 +42,15 @@ public class GameMenu extends AppCompatActivity {
         player.setShrimp(guppyRand);
         player.setTrout(guppyRand);
         player.setLobster(guppyRand);
+        player.setRod(1);
+        player.setBox(1);
         gamePlayBinding.invalidateAll();
+    }
+
+    public void enterFishing(View view){
+        Intent intent = new Intent(this, Fishing.class);
+        intent.putExtra("data", player);
+        startActivity(intent);
     }
 
     public void savePlayer(View view){

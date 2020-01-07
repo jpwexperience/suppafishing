@@ -101,12 +101,11 @@
             android:id="@+id/player_net"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="@{StringUtil.netString(player.net)}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/player_info" />
+            app:layout_constraintTop_toTopOf="@+id/player_guppy" />
 
         <TextView
             android:id="@+id/player_rod"
@@ -169,6 +168,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:onClick="enterFishing"
             android:text="Fishing"
             app:layout_constraintEnd_toEndOf="@+id/button"
             app:layout_constraintStart_toStartOf="@+id/button"

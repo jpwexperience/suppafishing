@@ -115,6 +115,7 @@ public class Player extends BaseObservable implements Parcelable {
         return rod;
     }
 
+
     public int getId() {
         return id;
     }
@@ -165,6 +166,11 @@ public class Player extends BaseObservable implements Parcelable {
 
     public void setNet(int net) {
         this.net = net;
+        notifyPropertyChanged(BR.player);
+    }
+
+    public void setBox(int box) {
+        this.box = box;
         notifyPropertyChanged(BR.player);
     }
 
