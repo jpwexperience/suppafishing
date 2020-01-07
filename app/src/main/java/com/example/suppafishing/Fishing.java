@@ -26,28 +26,50 @@ public class Fishing extends AppCompatActivity {
     public void updatePlayerInfo(){
         generalInfo.setText(player.toString() + "\n" + player.getMarket().toString());}
 
+    public void updateMarketTime(int time){
+        int timeRemaining = player.getMarket().getTime();
+        if(timeRemaining - time > 0){
+            player.getMarket().setTime(timeRemaining - time);
+        }
+        else{
+            player.setDays(player.getDays() - 1);
+            player.getMarket().setTime(24);
+        }
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void fishGuppy(View view){
-        int randomNum = ThreadLocalRandom.current().nextInt(1, 30 + 1);
-        player.setGuppy(player.getGuppy() + randomNum);
+        int randomFish = ThreadLocalRandom.current().nextInt(1, 30 + 1);
+        int time = 1;
+        player.setGuppy(player.getGuppy() + randomFish);
+        updateMarketTime(time);
         updatePlayerInfo();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void fishShrimp(View view){
-        int randomNum = ThreadLocalRandom.current().nextInt(1, 10 + 1);
-        player.setShrimp(player.getShrimp() + randomNum);
+        int randomFish = ThreadLocalRandom.current().nextInt(1, 10 + 1);
+        int time = 2;
+        player.setShrimp(player.getShrimp() + randomFish);
+        updateMarketTime(time);
         updatePlayerInfo();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void fishTrout(View view){
-        int randomNum = ThreadLocalRandom.current().nextInt(1, 5 + 1);
-        player.setTrout(player.getTrout() + randomNum);
+        int randomFish = ThreadLocalRandom.current().nextInt(1, 5 + 1);
+        int time = 5;
+        player.setTrout(player.getTrout() + randomFish);
+        updateMarketTime(time);
         updatePlayerInfo();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void fishLobster(View view){
-        int randomNum = ThreadLocalRandom.current().nextInt(1, 5 + 1);
-        player.setLobster(player.getLobster() + randomNum);
+        int randomFish = ThreadLocalRandom.current().nextInt(1, 5 + 1);
+        int time = 10;
+        player.setLobster(player.getLobster() + randomFish);
+        updateMarketTime(time);
         updatePlayerInfo();
     }
 
