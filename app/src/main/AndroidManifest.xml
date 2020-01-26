@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Fishing"></activity>
+        <activity android:name=".GameOver"></activity>
+        <activity android:name=".Fishing" />
         <activity
             android:name=".ResumeGame"
             android:parentActivityName=".MainActivity">
@@ -19,8 +20,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.suppafishing.MainActivity" />
         </activity>
-        <activity android:name=".Marketplace"></activity>
-        <activity android:name=".GameMenu"></activity>
+        <activity android:name=".Marketplace" />
+        <activity android:name=".GameMenu" />
         <activity
             android:name=".NewGame"
             android:parentActivityName=".MainActivity">

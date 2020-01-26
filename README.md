@@ -1,2 +1,3 @@
 # Suppa Fishing
-## Simple Market Centered Fishing Simulator
+## Simple Android Market Simulation Game
+Still in the very early stages.

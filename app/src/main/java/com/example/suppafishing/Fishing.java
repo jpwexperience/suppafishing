@@ -32,10 +32,11 @@ public class Fishing extends AppCompatActivity {
             player.getMarket().setTime(timeRemaining - time);
         }
         else{
-            player.setDays(player.getDays() - 1);
-            player.getMarket().setTime(24);
+                player.setDays(player.getDays() - 1);
+                player.getMarket().setTime(24);
         }
     }
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void fishGuppy(View view){
